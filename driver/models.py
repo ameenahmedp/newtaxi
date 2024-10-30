@@ -25,6 +25,7 @@ class Driver(models.Model):
         return f"{self.name} - {self.carname}"
 
 class Vehicle(models.Model):
+    owner = models.OneToOneField(Driver,on_delete=models.CASCADE)
     vehicle_type = models.CharField(max_length=20)  # e.g., 'SUV', 'Sedan'
     vehicle_name = models.CharField(max_length=15)
     vehicle_number = models.CharField(max_length=15)  # Vehicle registration number
